@@ -1,16 +1,11 @@
-from getMovieActors import movieActors
-from getMovies import movies
-from getActors import actors
+from getMovieActors import get_movie_actors
+from getMovies import get_movies
+from getActors import get_actors
 
 
-"""
-print(movies)
-print()
-print(actors)
-print()
-print(movieActors)
-"""
-
+actors = get_actors()
+movies = get_movies()
+movieActors = get_movie_actors()
 graph = {}
 for k, v in movieActors.items():
     movieName = movies[k]
@@ -23,20 +18,3 @@ for k, v in movieActors.items():
             graph[actor_name] = graph.get(actor_name, []) +\
                     [{"name": rel_actor_name, "movie": movieName}]
 
-
-"""
-print("\n")
-print("GRAPH\n")
-
-for k, v in graph.items():
-    if k == 'Diane Keaton':
-        print(f"{k}: {v}")
-        print()
-
-        for f in v:  
-            if f['name'] == 'Meg Ryan':
-                print('\n')
-                print(f['movie'])
-                print('--------------------------')
-                print('found')
-"""
