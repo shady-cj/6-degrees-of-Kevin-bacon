@@ -1,15 +1,21 @@
+"""
+This module provides a function plot_graph that uses networkx
+and matplotlib to plot the edges from the Bacon's number relationship
+result and displays the visualization
+"""
+
 import matplotlib.pyplot as plt
 import networkx as nx
 
-def plot_graph(node_list):
-    nodes = [a['name'] for a in node_list]
+def plot_graph(rel_table):
+    nodes = rel_table["nodes"]
     edges = []
-    for index, a in enumerate(node_list):
-        next_index = index + 1
-        if next_index < len(node_list):
-            next_entry_name = node_list[next_index]['name']
-            movie_starred = node_list[next_index]['movie']
-            edges.append((a["name"], next_entry_name, {"movie": movie_starred}))
+    for entry in rel_table["edges"]:
+        if all([entry[0], entry[1]]):
+            firstPerson = entry[0].getName()
+            secondPerson = entry[1].getName()
+            movie_starred = entry[2]
+            edges.append((firstPerson, secondPerson, {"movie": movie_starred}))
     G = nx.Graph()
     G.add_nodes_from(nodes)
     
@@ -17,7 +23,7 @@ def plot_graph(node_list):
     pos = nx.spring_layout(G)
     nx.draw(G, pos=pos, with_labels=True,
             node_color="red", node_size=5000,
-            font_color="white", font_size=7,
+            font_color="black", font_size=9,
             font_family="Times New Roman",
             font_weight="bold",
             width=3
