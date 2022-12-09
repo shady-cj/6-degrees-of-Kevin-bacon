@@ -30,7 +30,7 @@ def plot_graph(rel_table):
     )
     
     edge_labels = nx.get_edge_attributes(G,'movie')
-    nx.draw_networkx_edge_labels(G, pos, edge_labels)
+    nx.draw_networkx_edge_labels(G, pos, edge_labels, font_size=5)
     plt.margins(0.2)
     plt.show()
     
