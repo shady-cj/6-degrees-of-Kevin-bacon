@@ -1,4 +1,4 @@
-# Prerequisite
+# Prerequisites
 Python 3 and latest version of pip must be installed..
 
 To updgrade pip 
@@ -30,3 +30,5 @@ on Linux
 
 
 ## WALKTHROUGH
+===============
+
