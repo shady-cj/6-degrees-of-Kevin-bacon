@@ -34,4 +34,3 @@ def plot_graph(rel_table):
     plt.margins(0.2)
     plt.show()
     
-
